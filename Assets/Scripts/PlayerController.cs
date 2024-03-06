@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -62,5 +63,14 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, 0.1f, whatIsGround);
         return hit.collider != null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Deadly"))
+        {
+            // Game over and Restart
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

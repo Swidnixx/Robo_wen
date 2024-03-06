@@ -6,13 +6,11 @@ public class WorldScroller : MonoBehaviour
 {
     public WorldSegment groundLeft, groundRight;
 
-    public GameObject gleft, gRight;
-
     public float speed = 1;
 
     public WorldSegment[] tiles;
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 delta_pos = new Vector2( -speed * Time.deltaTime, 0);
         groundLeft.transform.position += delta_pos;
@@ -24,15 +22,13 @@ public class WorldScroller : MonoBehaviour
 
             newTile.transform.parent = gameObject.transform;
 
-            Vector3 tileWidth = new Vector2(groundLeft.Width, 0);
-            groundLeft.transform.position = groundRight.transform.position + tileWidth;
+            Vector3 newTileWidth = new Vector2(newTile.Width, 0);
+            Vector3 rightTileWidth = new Vector2(groundRight.Width, 0);
+            newTile.transform.position = groundRight.transform.position + newTileWidth/2 + rightTileWidth/2;
 
-
-            groundRight = groundLeft;
-            groundLeft = newTile;
-
-            //Destroy(gleft);
-            gleft = newTile.gameObject;
+            Destroy(groundLeft.gameObject);
+            groundLeft = groundRight;
+            groundRight = newTile;
         }
     }
 }
