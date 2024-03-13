@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         if(collision.CompareTag("Deadly"))
         {
             // Game over and Restart
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.instance.GameOver();
         }
     }
 }
