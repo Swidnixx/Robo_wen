@@ -17,11 +17,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Text scoreText;
+    public Text coinsText;
+    public GameObject gameOverPanel;
 
     public float worldScrollingSpeed;
-
     private float score;
-
+    private int coins;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString("0");
     }
 
-    public GameObject gameOverPanel;
     public void GameOver()
     {
         Time.timeScale = 0;
@@ -46,5 +46,23 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void CoinCollect()
+    {
+        coins++;
+        coinsText.text = coins.ToString();
+    }
+
+    public bool magnet_active;
+    public void MagnetCollect()
+    {
+        magnet_active = true;
+        Invoke(nameof(DeactivateMagnet), 5);
+    }
+
+    void DeactivateMagnet()
+    {
+        magnet_active = false;
     }
 }
