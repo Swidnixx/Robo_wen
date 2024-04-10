@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     private float score;
     private int coins;
 
+    public MagnetSO magnet;
+    public bool battery_active;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -54,15 +57,35 @@ public class GameManager : MonoBehaviour
         coinsText.text = coins.ToString();
     }
 
-    public bool magnet_active;
     public void MagnetCollect()
     {
-        magnet_active = true;
+        if (magnet.magnet_active)
+        {
+            CancelInvoke(nameof(DeactivateMagnet));
+        }
+
+        magnet.magnet_active = true;
         Invoke(nameof(DeactivateMagnet), 5);
     }
 
     void DeactivateMagnet()
     {
-        magnet_active = false;
+        magnet.magnet_active = false;
+    }
+
+
+    public void BatteryCollect()
+    {
+        if(battery_active)
+        {
+            CancelInvoke(nameof(DeactivateBattery));
+        }
+        battery_active = true;
+        Invoke(nameof(DeactivateBattery), 5);
+    }
+
+    void DeactivateBattery()
+    {
+        battery_active = false;
     }
 }

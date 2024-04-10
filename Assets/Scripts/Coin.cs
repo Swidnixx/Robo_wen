@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.instance.magnet_active)
+        if(GameManager.instance.magnet.magnet_active)
         {
             Vector2 myPosition = transform.position;
             Vector2 playerPosition = player.position;

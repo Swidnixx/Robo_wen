@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("Deadly"))
         {
+            if (GameManager.instance.battery_active)
+                return; // wyjście z funkcji
+
             // Game over and Restart
             GameManager.instance.GameOver();
         }
