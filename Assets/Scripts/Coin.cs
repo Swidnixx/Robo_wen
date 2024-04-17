@@ -14,14 +14,14 @@ public class Coin : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.instance.magnet.magnet_active)
+        if(GameManager.instance.pm.Magnet.magnet_active)
         {
             Vector2 myPosition = transform.position;
             Vector2 playerPosition = player.position;
 
             float distanceToPlayer = Vector2.Distance(myPosition, playerPosition);
 
-            if(distanceToPlayer < 5)
+            if(distanceToPlayer < GameManager.instance.pm.Magnet.magnet_distance)
             {
                 Vector2 direction = (playerPosition - myPosition) / distanceToPlayer;
                 transform.position += (Vector3)direction * Time.deltaTime * speed;

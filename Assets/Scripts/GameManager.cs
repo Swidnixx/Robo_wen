@@ -24,8 +24,13 @@ public class GameManager : MonoBehaviour
     private float score;
     private int coins;
 
-    public MagnetSO magnet;
-    public bool battery_active;
+    public PowerupManager pm;
+
+    private void Start()
+    {
+        pm.Magnet.magnet_active = false;
+        pm.Battery.active = false;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -59,33 +64,33 @@ public class GameManager : MonoBehaviour
 
     public void MagnetCollect()
     {
-        if (magnet.magnet_active)
+        if (pm.Magnet.magnet_active)
         {
             CancelInvoke(nameof(DeactivateMagnet));
         }
 
-        magnet.magnet_active = true;
-        Invoke(nameof(DeactivateMagnet), 5);
+        pm.Magnet.magnet_active = true;
+        Invoke(nameof(DeactivateMagnet), pm.Magnet.magnet_duration);
     }
 
     void DeactivateMagnet()
     {
-        magnet.magnet_active = false;
+        pm.Magnet.magnet_active = false;
     }
 
 
     public void BatteryCollect()
     {
-        if(battery_active)
+        if(pm.Battery.active)
         {
             CancelInvoke(nameof(DeactivateBattery));
         }
-        battery_active = true;
-        Invoke(nameof(DeactivateBattery), 5);
+        pm.Battery.active = true;
+        Invoke(nameof(DeactivateBattery), pm.Battery.duration);
     }
 
     void DeactivateBattery()
     {
-        battery_active = false;
+        pm.Battery.active = false;
     }
 }

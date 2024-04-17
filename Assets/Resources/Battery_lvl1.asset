@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7022fb8a4e8617741b89b8b95c7f79dc, type: 3}
-  m_Name: Magnet_lvl1
+  m_Script: {fileID: 11500000, guid: eaa6d81c1cf7c624296686017561ce8d, type: 3}
+  m_Name: Battery_lvl1
   m_EditorClassIdentifier: 
   level: 1
-  upgradeCost: 37
-  upgraded: {fileID: 11400000, guid: 4e70c71c64e97294a8bcdc337a3140fb, type: 2}
-  magnet_active: 0
-  magnet_distance: 4.5
-  magnet_duration: 5
+  upgradeCost: 0
+  upgraded: {fileID: 0}
+  active: 0
+  distance: 3
+  duration: 5
