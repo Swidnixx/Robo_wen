@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6477790873577671, guid: 01cabde58d3e0de42946643357da9751, type: 3}
+      propertyPath: coinSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: b33577431f114d84b955153097ffdb37, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01cabde58d3e0de42946643357da9751, type: 3}
 --- !u!1 &1147726846

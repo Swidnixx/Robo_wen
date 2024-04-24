@@ -10,6 +10,5 @@ public class BatterySO : ScriptableObject
     public BatterySO upgraded;
 
     public bool active;
-    public float distance = 3;
     public float duration = 5;
 }

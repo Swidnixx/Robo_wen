@@ -30,8 +30,17 @@ public class PowerupManager : ScriptableObject
         }
     }
 
+    public bool reset;
+    void Reset()
+    {
+        PlayerPrefs.SetString("BatteryLevel", "Battery_lvl1");
+        PlayerPrefs.SetString("MagnetLevel", "Magnet_lvl1");
+    }
     public void Init()
     {
+        if (reset)
+            Reset();
+
         //Read current powerup level from PlayerPrefs on startup
         // Stay at default if not found
         BatterySO tmp = Resources.Load<BatterySO>(PlayerPrefs.GetString("BatteryLevel"));

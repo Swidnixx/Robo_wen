@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magnet_lvl1
   m_EditorClassIdentifier: 
   level: 1
-  upgradeCost: 37
+  upgradeCost: 4
   upgraded: {fileID: 11400000, guid: 4e70c71c64e97294a8bcdc337a3140fb, type: 2}
   magnet_active: 0
   magnet_distance: 4.5

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa6d81c1cf7c624296686017561ce8d, type: 3}
-  m_Name: Battery_lvl1
+  m_Name: Battery_lvl3
   m_EditorClassIdentifier: 
-  level: 1
-  upgradeCost: 2
-  upgraded: {fileID: 11400000, guid: 36681565e3566a442b7d239aeae278ba, type: 2}
+  level: 3
+  upgradeCost: 4
+  upgraded: {fileID: 0}
   active: 0
-  duration: 5
+  duration: 20

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _battery: {fileID: 11400000, guid: bab6a347ce50f354b85d40435397410d, type: 2}
   _magnet: {fileID: 11400000, guid: ff5f014c3886a5a4a9a31c8a60254916, type: 2}
+  reset: 0

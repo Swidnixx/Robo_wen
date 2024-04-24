@@ -46,4 +46,10 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(playerJumpSfx);
     }
+
+    public AudioClip coinSfx;
+    public void PlayCoinSfx()
+    {
+        audioSource.PlayOneShot(coinSfx);
+    }
 }

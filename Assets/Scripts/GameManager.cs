@@ -17,12 +17,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Text scoreText;
+    public Text highScoreText;
     public Text coinsText;
     public GameObject gameOverPanel;
 
     public float worldScrollingSpeed;
     private float score;
     private int coins;
+    private float highScore;
 
     public PowerupManager pm;
 
@@ -30,12 +32,24 @@ public class GameManager : MonoBehaviour
     {
         pm.Magnet.magnet_active = false;
         pm.Battery.active = false;
+
+        coins = PlayerPrefs.GetInt("Coins");
+        coinsText.text = coins.ToString();
+
+        highScore = PlayerPrefs.GetFloat("HighScore");
+        highScoreText.text = highScore.ToString("0");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         score += worldScrollingSpeed;
+        if(score > highScore)
+        {
+            highScore = score;
+            highScoreText.text = highScore.ToString("0");
+            PlayerPrefs.SetFloat("HighScore", highScore);
+        }
         UpdateOnScreen();
     }
 
@@ -60,6 +74,8 @@ public class GameManager : MonoBehaviour
     {
         coins++;
         coinsText.text = coins.ToString();
+        PlayerPrefs.SetInt("Coins", coins);
+        SoundManager.instance.PlayCoinSfx();
     }
 
     public void MagnetCollect()
